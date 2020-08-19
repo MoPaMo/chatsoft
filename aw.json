@@ -1,0 +1,3 @@
+[
+    {"q":"/^search for (\\w+)( |)$/i", "a":"open('wikipedia')"}
+]
