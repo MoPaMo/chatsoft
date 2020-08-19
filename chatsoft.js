@@ -1,6 +1,7 @@
 function test() {
-    text = document.getElementById("demo").value
-    var match = text.match(/search for (\w+)( |)/i)
-    if (/search for (\w+)( |)/i.test(text))
-        open("https://wikipedia.org/wiki/" + match[1], "wiki");
+    let text = document.getElementById("demo").value
+    let reg = new RegExp(/search for (\w+)( |)/i)
+    var match = reg.test(text)
+    if (reg.test(text))
+        open("https://wikipedia.org/wiki/" + match[0], "wiki");
 }
