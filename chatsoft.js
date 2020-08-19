@@ -14,18 +14,22 @@ function fetchJSONFile(path, callback) {
 
 // this requests the file and executes a callback with the parsed result once
 //   it is available
-
+var text, reg, match
 function test() {
-    let text = document.getElementById("demo").value; fetchJSONFile('aw.json', function (data) {
+    text = document.getElementById("demo").value; fetchJSONFile('aw.json', function (data) {
         data.forEach(function (item, index) {
-            let reg = new RegExp(/^search for (\w+)( |)$/i)
-            console.log(item.q)
-            //if()    
-        });
+            reg = new RegExp(item.q)
+            if (reg.test(text)) {
+
+                match = text.match(reg)
+                var F = new Function(item.a);
+                return (F());
+            }
+            else { }
+
+        });return("Not found")
+    
 
 
-        var match = text.match(reg)
-        if (reg.test(text))
-            open("https://wikipedia.org/wiki/" + match[1], "wiki");
     });
 }
